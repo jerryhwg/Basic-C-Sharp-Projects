@@ -41,7 +41,7 @@ namespace anonyIncomeComp
             bool trueOrFalse = person1YrIncome > person2YrIncome;
             Console.WriteLine(trueOrFalse);
 
-            Console.Read();
+            Console.ReadLine();
         }
     }
 }

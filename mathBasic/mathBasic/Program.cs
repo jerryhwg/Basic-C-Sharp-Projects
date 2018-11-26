@@ -40,7 +40,7 @@ namespace Math_Basic
             int remainder = Number5 % 7;
             Console.WriteLine("Result = " + remainder);
 
-            Console.Read();
+            Console.ReadLine();
         }
     }
 }
