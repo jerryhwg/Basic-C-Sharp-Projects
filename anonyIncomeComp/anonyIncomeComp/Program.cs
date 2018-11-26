@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace anonyIncomeComp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             int weeksYr = 52;
             Console.WriteLine("Anonymous Income Comparison Program");
+
             Console.WriteLine("Person 1");
             Console.WriteLine("Person 1 Hourly Rate?");
             string person1HrRate = Console.ReadLine();
@@ -23,6 +20,7 @@ namespace anonyIncomeComp
             //Console.WriteLine("Person 1 Hours worked per week = " + person1HrWeekNum);
             int person1WkIncome = person1HrRateNum * person1HrWeekNum;
             Console.WriteLine("Person 1 weekly income = " + person1WkIncome);
+
             Console.WriteLine("Person 2");
             Console.WriteLine("Person 2 Hourly Rate?");
             string person2HrRate = Console.ReadLine();
@@ -35,6 +33,7 @@ namespace anonyIncomeComp
             int person2WkIncome = person2HrRateNum * person2HrWeekNum;
             Console.WriteLine("Person 2 weekly income = " + person1WkIncome);
             int person1YrIncome = person1HrRateNum * person1HrWeekNum * weeksYr;
+
             Console.WriteLine("Annual salary of Person 1 = " + person1YrIncome);
             int person2YrIncome = person2HrRateNum * person2HrWeekNum * weeksYr;
             Console.WriteLine("Annual salary of Person 2 = " + person2YrIncome);
