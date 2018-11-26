@@ -14,7 +14,7 @@ namespace Math_Basic
             string yourNum1 = Console.ReadLine();
             int Number1 = Convert.ToInt32(yourNum1);
             int product = 50 * Number1;
-            Console.WriteLine("Result = " +product);
+            Console.WriteLine("Result = " + product);
 
             Console.WriteLine("Input your number to add it to 25");
             string yourNum2 = Console.ReadLine();

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{94E2B73D-4847-4F56-ABAA-100F11186065}</ProjectGuid>
+    <ProjectGuid>{2E917CAF-D203-44E6-8CBD-16115F587583}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Math_Basic</RootNamespace>
-    <AssemblyName>Math_Basic</AssemblyName>
+    <RootNamespace>mathBasic</RootNamespace>
+    <AssemblyName>mathBasic</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
