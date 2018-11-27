@@ -30,7 +30,7 @@ namespace branchingBasic
                 }
                 else
                 {
-                    double quote = sumDimension / weight;
+                    double quote = (sumDimension * weight) / 100;
                     Console.WriteLine("Your estimated total for shipping this package is: $" + quote + ". Thank you");
                 }
             }
