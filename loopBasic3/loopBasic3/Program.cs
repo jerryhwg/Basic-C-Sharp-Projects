@@ -34,8 +34,10 @@ namespace loopBasic3
                         weight = Convert.ToInt32(Console.ReadLine());
                         break;
                 }
-                while (!myWeight) ;
             }
+
+            while (!myWeight);
+
             Console.Read();
         }
     }
