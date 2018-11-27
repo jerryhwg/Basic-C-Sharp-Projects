@@ -13,30 +13,30 @@ using System.Collections.Generic;
 
         if (number == 0)
         {
-            Console.WriteLine("You will get " + fruitArray[0]);
+            Console.WriteLine("You will get " + fruitArray[0] + ".");
         }
         else if (number == 1)
         {
-            Console.WriteLine("You will get " + fruitArray[1]);
+            Console.WriteLine("You will get " + fruitArray[1] + ".");
         }
         else if (number == 2)
         {
-            Console.WriteLine("You will get " + fruitArray[2]);
+            Console.WriteLine("You will get " + fruitArray[2] + ".");
         }
         else if (number == 3)
         {
-            Console.WriteLine("You will get " + fruitArray[3]);
+            Console.WriteLine("You will get " + fruitArray[3] + ".");
         }
         else if (number == 4)
         {
-            Console.WriteLine("You will get " + fruitArray[4]);
+            Console.WriteLine("You will get " + fruitArray[4] + ".");
         }
         else
         {
             Console.WriteLine("You did not follow my instruction so no fruit for you.");
         }
 
-        Console.WriteLine("Next");
+        Console.WriteLine("Next question");
 
         int[] numArray = { 100, 200, 300, 400, 500 };
         //Console.WriteLine(numArray[0]);
@@ -70,7 +70,7 @@ using System.Collections.Generic;
             Console.WriteLine("You did not follow my instruction so no value.");
         }
 
-        Console.WriteLine("Last one");
+        Console.WriteLine("Last question");
 
         List<string> fruitList = new List<string>();
         fruitList.Add("Apple");
@@ -86,23 +86,23 @@ using System.Collections.Generic;
 
         if (listNum == 0)
         {
-            Console.WriteLine("You will get " + fruitList[0]);
+            Console.WriteLine("You will get " + fruitList[0] + ".");
         }
         else if (listNum == 1)
         {
-            Console.WriteLine("You will get " + fruitList[1]);
+            Console.WriteLine("You will get " + fruitList[1] + ".");
         }
         else if (listNum == 2)
         {
-            Console.WriteLine("You will get " + fruitList[2]);
+            Console.WriteLine("You will get " + fruitList[2] + ".");
         }
         else if (listNum == 3)
         {
-            Console.WriteLine("You will get " + fruitList[3]);
+            Console.WriteLine("You will get " + fruitList[3] + ".");
         }
         else if (listNum == 4)
         {
-            Console.WriteLine("You will get " + fruitList[4]);
+            Console.WriteLine("You will get " + fruitList[4] + ".");
         }
         else
         {
