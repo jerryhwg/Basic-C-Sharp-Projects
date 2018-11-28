@@ -40,6 +40,7 @@ class Program
         fruitList.Add("Orange");
         fruitList.Add("Pear");
         fruitList.Add("Grape");
+        // List<string> fruitList = new List<string>() { "Apple", "Banana", "Orange", "Pear", "Grape" };
 
         Console.WriteLine("Select a number for your fruit choice in 0 - 4.");
         int k = Convert.ToInt32(Console.ReadLine());
