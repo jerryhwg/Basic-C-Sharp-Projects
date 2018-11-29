@@ -114,7 +114,7 @@ class Program
                     // index of first occurence
                     //int index = Array.IndexOf(city, cityQuery);
                     //Console.WriteLine("{0} is listed twice in the list at index {1}.", cityQuery, index);
-                    for (int i =0; i < city.Length; i++)
+                    for (int i = 0; i < city.Length; i++)
                     {
                         if (cityQuery == city[i])
                         {
@@ -138,21 +138,34 @@ class Program
         // Assignment 11: Create a List of strings that has at least two identical strings in the List. Create a foreach loop that evaluates each item in the list, and
         // displays a message showing the string and whether or not it has already appeared in the list.
 
-        List<string> Names = new List<string>() { "Jesse", "Jerry", "Tom", "Jesse" };
-        Console.WriteLine("\nHere everyone's name.");
+        List<string> fnames = new List<string>() { "Jesse", "Jerry", "Tom", "Jesse" };
+        List<string> duplicateName = new List<string>();
+        Console.WriteLine("\nHere are everyone's name. Jesse, Jerry, Tom" );
 
-        foreach (string name in Names)
+        Console.WriteLine("\nFInd which name is listed twice in the name list.");
+        string nameQuery = Console.ReadLine();
+
+        foreach (var name in fnames)
         {
-            Console.WriteLine(name);
+            if (nameQuery == name)
+            {
+                duplicateName.Add(name);
+            }
         }
 
-        foreach (string name in Names)
+        if (duplicateName.Count() > 1)
         {
-            if (name.Count() > 1)
+            for (int i = 0; i < fnames.Count; i++)
             {
-                Console.WriteLine("\nLook the name " + name + " is in the list repeatedly");
-                break;
+                if (nameQuery == fnames[i])
+                {
+                    Console.WriteLine("Yes, the name " + nameQuery + " is duplicate in list and listed in the index " + i);
+                }
             }
+        }
+        else
+        {
+            Console.WriteLine("The name is listed duplicate in the list");
         }
 
         Console.ReadLine();
