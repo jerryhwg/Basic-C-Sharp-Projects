@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 class Program
 {
@@ -65,20 +66,31 @@ class Program
 
         Console.WriteLine("Good jobs, you have found enough treasures!");
 
-        // Assignment 6
+        // Assignment 6, 7 & 8
 
-        List<string> fruits = new List<string>() { "apple", "banana", "orange", "pear", "grape" };
-        Console.WriteLine("\nGuess what fruit I have?");
-        string fruit = Console.ReadLine();
+        string[] fruits = { "apple", "banana", "orange", "pear", "grape" };
+        Console.WriteLine("\nChoose what fruit you want in my fruit container?");
+        string choice = Console.ReadLine();
 
-        foreach (string choice in fruits)
+        while (! fruits.Contains(choice))
         {
-            if (choice == fruit)
+            Console.WriteLine("Your choice is not valid");
+            Console.WriteLine("\nChoose what fruit you want in my fruit container?");
+            choice = Console.ReadLine();
+        }
+
+        for (int k = 0; k < fruits.Length; k++)
+        {
+            if (fruits[k] == choice)
             {
-                Console.WriteLine("Yes I have " + fruit + ".");
+                Console.WriteLine("Yes I have " + fruits[k] + ".");
                 break;
             }
         }
+
+        // Assignment 9
+
+
 
         Console.ReadLine();
     }
