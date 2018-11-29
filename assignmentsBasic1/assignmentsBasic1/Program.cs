@@ -97,23 +97,42 @@ class Program
         // Create a loop that iterates through the list and then displays the indices of the array that contain matching text on the screen.
         // Assignment 10: Add code to that above loop that tells a user if they put in text that isn’t in the List.
 
-        string[] city = { "seattle", "portland", "chicago", "newyork", "seattle" };
-        Console.WriteLine("\nChoose a city you would like to visit?");
-        string cityChoice = Console.ReadLine();
+        string[] city = { "portland", "seattle", "chicago", "newyork", "seattle" };
+        Console.WriteLine("\nFInd a city name that is twice listed in the list.");
+        string cityQuery = Console.ReadLine();
 
-        while (! city.Contains(cityChoice))
+        var duplicates = city
+            .GroupBy(i => i)
+            .Where(g => g.Count() > 1)
+            .Select(g => g.Key);
+
+        if (city.Contains(cityQuery))
         {
-            Console.WriteLine("Your choice is not valid");
-            Console.WriteLine("\nChoose a city you would like to visit?");
-            cityChoice = Console.ReadLine();
+            foreach (var l in duplicates)
+                if (cityQuery == l)
+                {
+                    // index of first occurence
+                    //int index = Array.IndexOf(city, cityQuery);
+                    //Console.WriteLine("{0} is listed twice in the list at index {1}.", cityQuery, index);
+                    for (int i =0; i < city.Length; i++)
+                    {
+                        if (cityQuery == city[i])
+                        {
+                            Console.WriteLine("Correct, " + cityQuery + " is listed respectively in index " + i);
+                        }
+                    }
+                    //Console.WriteLine("Correct. " + cityQuery + " is listed twice in the list at index."
+                    //break;
+                }
+                else if (cityQuery != l)
+                {
+                    Console.WriteLine(cityQuery + " is not listed twice in the list.");
+                    break;
+                }
         }
-
-        for (int l = 0; l < city.Length; l++)
+        else
         {
-            if (city[l] == cityChoice)
-            {
-                Console.WriteLine("Your choice of city " + city[l] + " in our list.");
-            }
+            Console.WriteLine("The city you queried is not in the city list.");
         }
 
         // Assignment 11: Create a List of strings that has at least two identical strings in the List. Create a foreach loop that evaluates each item in the list, and
