@@ -6,23 +6,43 @@ using System.Threading.Tasks;
 
 namespace classObjectMethodBasic1
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            result1 = mathAdd(number1, number2);
-            result2 = mathMultiply(number1, number2);
-            result3 = mathDivide(number1, number2);
+            Console.WriteLine("What number do you want to do the math operations on?");
+            int number = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Input a number you want to do the math operations on.");
-            int number1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Input another number you want to do the math operation on.");
-            int number2 = Convert.ToInt32(Console.ReadLine());
+            int result1 = new int();
+            result1 = Sum(result1);
+            int result2 = new int();
+            result2 = Product(result2);
+            int result3 = new int();
+            result3 = Quotient(result3);
 
-            Console.WriteLine("Method 1 result: " + result1);
-            Console.WriteLine("Method 2 result: " + result2);
-            Console.WriteLine("Method 3 result: " + result3);
+            Console.WriteLine("Math 1 result: " + result1);
+            Console.WriteLine("Math 2 result: " + result2);
+            Console.WriteLine("Math 3 result: " + result3);
             Console.ReadLine();
+        }
+
+        public static int Sum(int number)
+
+        {
+            int result1 = number + 2;
+            return result1;
+        }
+
+        public static int Product(int number)
+        {
+            int result2 = number * 2;
+            return result2;
+        }
+
+        public static int Quotient(int number)
+        {
+            int result3 = number / 2;
+            return result3;
         }
     }
 }
