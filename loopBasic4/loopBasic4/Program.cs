@@ -1,9 +1,9 @@
 ﻿using System;
 
-    class Program
+class Program
+{
+    static void Main()
     {
-        static void Main()
-        {
         string[] city = { "portland", "seattle", "chicago", "newyork", "seattle" };
         Console.WriteLine("\nFInd a city name that is twice listed in the list.");
         string cityQuery = Console.ReadLine();
@@ -20,5 +20,5 @@
 
         Console.ReadLine();
 
-        } 
     }
+}
