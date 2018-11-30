@@ -21,8 +21,10 @@ namespace classObjectMethodBasic3
             Console.WriteLine(result2);
 
             string number3 = "20";
-            int strResult3 = new int();
-            strResult3 = Convert.ToInt32(Math.math(number3));
+            string strResult3 = new string(new char[] { });
+            strResult3 = Math.math(number3);
+            //(wrong) int strResult3 = new int();
+            //(wrong) strResult3 = Convert.ToInt32(Math.math(number3));
             Console.WriteLine(strResult3);
 
             Console.ReadLine();
