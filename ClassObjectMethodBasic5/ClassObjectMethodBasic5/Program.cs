@@ -24,6 +24,12 @@ namespace ClassObjectMethodBasic5
 
     public static class Math
     {
+        public static void Div(int number)
+        {
+            int result = (number / 2);
+            Console.WriteLine($"Your entered number {number} divided by 2 is {result}");
+        }
+
         public static void Div(int number, out int output)
         {
             int result = (number / 2);
