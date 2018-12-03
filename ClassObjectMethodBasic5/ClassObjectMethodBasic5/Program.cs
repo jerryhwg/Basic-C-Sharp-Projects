@@ -15,7 +15,6 @@ namespace ClassObjectMethodBasic5
             int number = Convert.ToInt32(Console.ReadLine());
 
             int output;
-
             Math.Div(number, out output);
         
             Console.ReadLine();
@@ -33,9 +32,12 @@ namespace ClassObjectMethodBasic5
         public static void Div(int number, out int output)
         {
             int result = (number / 2);
-            int temp = 2;
-            output = temp;
+            //int temp = 2;
+            //output = temp;
+            Console.WriteLine("Enter an output parameter:");
+            output = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"Your entered number {number} divided by 2 is {result}");
+            Console.WriteLine($"Output value is {output}");
         }
     }
 }
