@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BF3C80F-E570-4C5A-BA7F-0BA40C5A4E72}</ProjectGuid>
+    <ProjectGuid>{5A35E889-1DEF-4B37-B236-3B34A9F09120}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TwentyOneGame</RootNamespace>
-    <AssemblyName>TwentyOneGame</AssemblyName>
+    <RootNamespace>TwentyOne</RootNamespace>
+    <AssemblyName>TwentyOne</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

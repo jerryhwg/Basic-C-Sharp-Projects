@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOneGame
+namespace TwentyOne
 {
     public class Deck // Deck class is a receipe
     {
@@ -33,8 +33,8 @@ namespace TwentyOneGame
         public List<Card> Cards { get; set; } // "Cards": property / get or set this property(Cards) = add to property
 
         public void Shuffle(int times = 1) // Shuffle: method, times = 1: optional
-            // (old comments) static: you can call this method 'Shuffle' withouth applying(having) this specific deck that I created (if I remove 'static', then the method belongs to 'Deck' object
-            // void: no return needed, internally just works
+                                           // (old comments) static: you can call this method 'Shuffle' withouth applying(having) this specific deck that I created (if I remove 'static', then the method belongs to 'Deck' object
+                                           // void: no return needed, internally just works
         {
             for (int i = 0; i < times; i++)
             {
