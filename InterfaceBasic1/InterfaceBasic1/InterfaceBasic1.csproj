@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E69BCFE2-3C39-4A4A-B27E-1B207E266982}</ProjectGuid>
+    <ProjectGuid>{1CAFD214-D6F8-461A-BE59-DD96AF58D1B8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AbstractClassBasic1</RootNamespace>
-    <AssemblyName>AbstractClassBasic1</AssemblyName>
+    <RootNamespace>InterfaceBasic1</RootNamespace>
+    <AssemblyName>InterfaceBasic1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employee.cs" />
+    <Compile Include="IQuittable.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

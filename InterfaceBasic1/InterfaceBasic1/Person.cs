@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AbstractClassBasic1
+namespace InterfaceBasic1
 {
     public abstract class Person
     {
