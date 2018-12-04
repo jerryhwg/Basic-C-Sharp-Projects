@@ -10,12 +10,4 @@ namespace InterfaceBasic1
     {
         void Quit();
     }
-
-    public class iQuit : IQuittable // Create an object of type IQuittable and call the Quit() method via the specific interface
-    {
-        public void Quit()
-        {
-            Console.WriteLine("I Quit");
-        }
-    }
 }
