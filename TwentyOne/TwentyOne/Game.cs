@@ -8,7 +8,7 @@ namespace TwentyOne
 {
     public class Game
     {
-        public List<string> Players { get; set } // property of Game (class, object, datatype)
+        public List<string> Players { get; set; } // property of Game (class, object, datatype)
         public string Name { get; set; }
         public string Dealer { get; set; }
 

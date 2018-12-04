@@ -10,9 +10,12 @@ namespace TwentyOne
     {
         static void Main(string[] args)
         {
-            Game game = new Game(); // instantiate class Game / game: instance (object) / Inheritance example
-            game.Dealer = "Jesse"; // game: instance, Dealer: method(property)
-            game.Name = "TwentyOne";
+            //TwentyOneGame game = new TwentyOneGame(); // Instantiate the Class TwentyOneGame / game: instance (object)
+            //game.Players = new List<string>() { "Jesse", "Bill", "Joe" }; // game: instance(object), Players: property (inheritance from Game class) / Instatiate with some values
+            //game.ListPlayers(); // game: instance, ListPlayers: method (from Game class = super class)
+            //game.Play();
+            //Console.ReadLine();
+
             Deck deck = new Deck(); // instantiate class Deck / Deck: datatype, object, class / deck: instance for 'Shuffle' method
             deck.Shuffle(3); // deck: instance, Shuffle: method, 3: argument / access Shuffle in Deck class (class method)
 
@@ -23,14 +26,5 @@ namespace TwentyOne
             Console.WriteLine(deck.Cards.Count);
             Console.ReadLine();
         }
-
-        //public static Deck Shuffle(Deck deck, int times)
-        //{
-        //    for (int i = 0; i < times; i++)
-        //    {
-        //        deck = Shuffle(deck);
-        //    }
-        //    return deck;
-        //}
     }
 }
