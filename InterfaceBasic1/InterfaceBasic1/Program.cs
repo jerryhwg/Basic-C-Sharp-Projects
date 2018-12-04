@@ -16,7 +16,7 @@ namespace InterfaceBasic1
             employee.SayName(); // Call super class method (of Person class) on employee (instance, object)
             employee.Quit(); // interface inheritnance
 
-            iQuit instance = new iQuit(); // calling a specific interface
+            IQuittable instance = new iQuit(); // calling a specific interface
             instance.Quit();
 
             Console.ReadLine();
