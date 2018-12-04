@@ -38,12 +38,4 @@ namespace classObjectMethodBasic4
             Console.ReadLine();
         }
     }
-    public class Math
-    {
-        public static int math(int number1, int number2 = 3)
-        {
-            int result1 = number1 + number2;
-            return result1;
-        }
-    }
 }
