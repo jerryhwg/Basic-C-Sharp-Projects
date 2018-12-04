@@ -16,15 +16,24 @@ namespace TwentyOne
             //game.Play();
             //Console.ReadLine();
 
-            Deck deck = new Deck(); // instantiate class Deck / Deck: datatype, object, class / deck: instance for 'Shuffle' method
-            deck.Shuffle(3); // deck: instance, Shuffle: method, 3: argument / access Shuffle in Deck class (class method)
+            //List<Game> games = new List<Game>();
+            //TwentyOneGame game = new TwentyOneGame(); // Polymorphism
+            //games.Add(game); // add games even though they are different data types
 
-            foreach (Card card in deck.Cards) // Card: datatype / foreach runs against a list, card exists only in this loop / list of deck.Cards
-            {
-                Console.WriteLine(card.Face + " of " + card.Suit); // card.Face & card.Suit from Deck.cs
-            }
-            Console.WriteLine(deck.Cards.Count);
+            TwentyOneGame game = new TwentyOneGame();
+            game.Players = new List<string>() { "Jesse", "BIll", "Bob" };
+            game.ListPlayers();
             Console.ReadLine();
+
+            //Deck deck = new Deck(); // instantiate class Deck / Deck: datatype, object, class / deck: instance for 'Shuffle' method
+            //deck.Shuffle(3); // deck: instance, Shuffle: method, 3: argument / access Shuffle in Deck class (class method)
+
+            //foreach (Card card in deck.Cards) // Card: datatype / foreach runs against a list, card exists only in this loop / list of deck.Cards
+            //{
+            //    Console.WriteLine(card.Face + " of " + card.Suit); // card.Face & card.Suit from Deck.cs
+            //}
+            //Console.WriteLine(deck.Cards.Count);
+            //Console.ReadLine();
         }
     }
 }

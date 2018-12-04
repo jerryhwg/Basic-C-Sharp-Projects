@@ -8,9 +8,14 @@ namespace TwentyOne
 {
     public class TwentyOneGame: Game // Inheritance example
     {
-        public void Play()
+        public override void Play() // an inheriting class must implement Game.play for abstract class/method in Game class / to implement, add override
         {
             throw new NotImplementedException();
+        }
+        public override void ListPlayers() // override virtual method
+        {
+            Console.WriteLine("21 Players:"); // added to test the override
+            base.ListPlayers();
         }
     }
 }
