@@ -8,7 +8,7 @@ namespace TwentyOne
 {
     public abstract class Game // abstract: never instantiate, never a instance (object) / base class
     {
-        public List<string> Players { get; set; } // property of Game (class, object, datatype)
+        public List<Player> Players { get; set; } // property of Game (class, object, datatype)
         public string Name { get; set; }
         public string Dealer { get; set; }
 
@@ -18,9 +18,9 @@ namespace TwentyOne
             // virtual (implementation: yes) - overriden by override method
             // abstract (implementation: no) - overriden by override method
         {
-            foreach (string player in Players)
+            foreach (Player player in Players)
             {
-                Console.WriteLine(player);
+                Console.WriteLine(player.Name);
             }
         }
     }
