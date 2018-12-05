@@ -25,12 +25,13 @@ namespace TwentyOne
             //game.ListPlayers();
             //Console.ReadLine();
 
-            Game game = new TwentyOneGame(); // polymorphism
-            game.Players = new List<Player>(); // instantiate first to add a player to Players list
-            Player player = new Player(); // Player: datatype, object, class (instantiate)
-            player.Name = "Jesse"; // instance
-            game = game + player; // instance, 'game + player': a method, return to game
-            game -= player; // short form of game = game + player
+            //Game game = new TwentyOneGame(); // polymorphism
+            //game.Players = new List<Player>(); // instantiate first to add a player to Players list
+            //Player player = new Player(); // Player: datatype, object, class (instantiate)
+            //player.Name = "Jesse"; // instance
+            //game = game + player; // instance, 'game + player': a method, return to game
+            //game -= player; // short form of game = game + player
+
             Deck deck = new Deck(); // instantiate class Deck / Deck: datatype, object, class / deck: instance for 'Shuffle' method
             deck.Shuffle(3); // deck: instance, Shuffle: method, 3: argument / access Shuffle in Deck class (class method)
 
