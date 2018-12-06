@@ -16,14 +16,14 @@ namespace TwentyOne
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    Card card = new Card();
-                    card.Face = (Face)i;
-                    card.Suit = (Suit)j;
-                    Cards.Add(card);
+                    Card card = new Card(); // instantiate
+                    card.Face = (Face)i; // after Card enum type Face declare
+                    card.Suit = (Suit)j; // after Card enum type Suit declare
+                    Cards.Add(card); // 52 cards for List<Card>
                 }
             }
         }
-        public List<Card> Cards { get; set; } // "Cards": property / get or set this property(Cards) = add to property
+        public List<Card> Cards { get; set; } // "Cards": property, List<Card> type / get or set this property(Cards) = add to property
 
         public void Shuffle(int times = 1) // Shuffle: method, times = 1: optional
                                            // (old comments) static: you can call this method 'Shuffle' withouth applying(having) this specific deck that I created (if I remove 'static', then the method belongs to 'Deck' object

@@ -9,16 +9,16 @@ namespace TwentyOne
     public class Card
     {
         public Suit Suit { get; set; } // property "Suit", its datatype is 'string', get or set this property(Suit)
-        public Face Face { get; set; }
+        public Face Face { get; set; } // 1st Face enum type, 2nd Face property
     }
-    public enum Suit
+    public enum Suit // enum for Suit, limited values (4)
     {
         Clubs,
         Diamonds,
         Hearts,
         Spades
     }
-    public enum Face
+    public enum Face // enum for Face, limited values (13)
     {
         Two,
         Three,
