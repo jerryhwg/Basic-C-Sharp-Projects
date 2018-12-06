@@ -30,10 +30,10 @@ namespace LambdaBasic1
             {
                 if (employee.FName == "Joe")
                 {
-                    //List<Employee> empListJoe = new List<Employee>();
                     empListJoe.Add(employee);
-                    //List<string> empListJoe = employee.Split(',').ToList();
-                    //Console.WriteLine($"Employee Name: {employee.FName} {employee.LName}, Employee ID: {employee.Id}");
+                    //List<Employee> empListJoe = new List<Employee>() { employee.FName, employee.LName, employee.Id };
+                    ///List<string> empListJoe = employee.Split(',').ToList();
+                    ////Console.WriteLine($"Employee Name: {employee.FName} {employee.LName}, Employee ID: {employee.Id}");
                     //////counter++;
                 }
             }
