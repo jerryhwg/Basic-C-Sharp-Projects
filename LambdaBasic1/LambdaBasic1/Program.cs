@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LambdaBasic1
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             //Employee employee = new Employee();
             List<Employee> empList = new List<Employee>()
@@ -25,20 +25,26 @@ namespace LambdaBasic1
                 new Employee { FName = "Jerry", LName = "Lee", Id = 110 }
             };
             List<Employee> empListJoe = new List<Employee>();
-            //////int counter = 0;
+            // int counter = 0;
             foreach (Employee employee in empList)
             {
                 if (employee.FName == "Joe")
                 {
                     empListJoe.Add(employee);
-                    //List<Employee> empListJoe = new List<Employee>() { employee.FName, employee.LName, employee.Id };
-                    ///List<string> empListJoe = employee.Split(',').ToList();
-                    ////Console.WriteLine($"Employee Name: {employee.FName} {employee.LName}, Employee ID: {employee.Id}");
-                    //////counter++;
+                    // counter++;
+                    // Console.WriteLine($"Employee Name: {employee.FName} {employee.LName}, Employee ID: {employee.Id}");
                 }
             }
-            //////Console.WriteLine(counter);
-            Console.WriteLine(empListJoe);
+
+            foreach (Employee employee in empListJoe)
+
+            {
+                Console.WriteLine($"{employee.FName} {employee.LName} {employee.Id}");
+            }
+
+            // Console.WriteLine(counter);
+
+            //Console.WriteLine(String.Join(" \n", empListJoe));
             Console.ReadLine();
         }
     }
@@ -47,5 +53,10 @@ namespace LambdaBasic1
         public string FName { get; set; }
         public string LName { get; set; }
         public int Id { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return $"Name: {FName} {LName}, Id: {Id}";
+        //}
     }
 }
