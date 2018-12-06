@@ -24,19 +24,21 @@ namespace LambdaBasic1
                 new Employee { FName = "Tim", LName = "Cook", Id = 109 },
                 new Employee { FName = "Jerry", LName = "Lee", Id = 110 }
             };
-
+            List<Employee> empListJoe = new List<Employee>();
+            //////int counter = 0;
             foreach (Employee employee in empList)
             {
                 if (employee.FName == "Joe")
                 {
-                    List<Employee> empListJoe = new List<Employee>();
+                    //List<Employee> empListJoe = new List<Employee>();
                     empListJoe.Add(employee);
-                    //List<Employee> empListJoe = new Employee { employee.FName, employee.LName, employee.Id };
+                    //List<string> empListJoe = employee.Split(',').ToList();
                     //Console.WriteLine($"Employee Name: {employee.FName} {employee.LName}, Employee ID: {employee.Id}");
-                    Console.WriteLine(empListJoe);
+                    //////counter++;
                 }
             }
-            //Console.WriteLine(empListJoe);
+            //////Console.WriteLine(counter);
+            Console.WriteLine(empListJoe);
             Console.ReadLine();
         }
     }
