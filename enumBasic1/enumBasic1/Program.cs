@@ -25,7 +25,7 @@ namespace enumBasic1
                     return input.First().ToString().ToUpper() + input.Substring(1);
                 }
             }
-            catch (Exception msg) // Console if an error occurs
+            catch (ArgumentException) // Console if an error occurs
             {
                 Console.WriteLine("Please enter an actual day of the week");
             }
@@ -35,7 +35,7 @@ namespace enumBasic1
         {
             Monday,
             Tuesday,
-            Wedneday,
+            Wednesday,
             Thursday,
             Friday,
             Saturday,
