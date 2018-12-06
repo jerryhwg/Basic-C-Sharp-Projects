@@ -10,25 +10,18 @@ namespace TwentyOne
     {
         public Deck() // constructor first (same name as class) / Deck: method name 
         {
-            Cards = new List<Card>(); // instantiate
-            List<string> Suits = new List<string>() { "Club", "Hearts", "Diamonds", "Spades" }; // list of Suits
-            List<string> Faces = new List<string>() // list of Faces
-            {
-                "Two", "Three", "Four", "Five", "Six", "Seven",
-                "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"
-            };
+            Cards = new List<Card>(); // instantiate a new list, this happens with 'Deck deck = new Deck();' to create a fully populate deck
 
-            foreach (string face in Faces) // foreach runs for list
+            for (int i = 0; i < 13; i++)
             {
-                foreach (string suit in Suits) // double loop to list all cases of Cards
+                for (int j = 0; j < 4; j++)
                 {
-                    Card card = new Card(); // card: instance (variable), Card: class, (): constructor, card variable only exists in the loop
-                    card.Suit = suit; // assign, take a card (suit) from list via loop
-                    card.Face = face; // assign
-                    Cards.Add(card); // add each new card to Cards list
+                    Card card = new Card();
+                    card.Face = (Face)i;
+                    card.Suit = (Suit)j;
+                    Cards.Add(card);
                 }
             }
-
         }
         public List<Card> Cards { get; set; } // "Cards": property / get or set this property(Cards) = add to property
 

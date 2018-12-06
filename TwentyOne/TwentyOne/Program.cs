@@ -32,6 +32,8 @@ namespace TwentyOne
             //game = game + player; // instance, 'game + player': a method, return to game
             //game -= player; // short form of game = game + player
 
+            //Card card = new Card();
+            //card.Suit = Suit.Clubs;
             Deck deck = new Deck(); // instantiate class Deck / Deck: datatype, object, class / deck: instance for 'Shuffle' method
             deck.Shuffle(3); // deck: instance, Shuffle: method, 3: argument / access Shuffle in Deck class (class method)
 

@@ -8,13 +8,30 @@ namespace TwentyOne
 {
     public class Card
     {
-        public Card() // constructor (same name as class)
-        {
-            Suit = "Spades";
-            Face = "Two";
-            // default value for Card
-        }
-        public string Suit { get; set; } // property "Suit", its datatype is 'string', get or set this property(Suit)
-        public string Face { get; set; }
+        public Suit Suit { get; set; } // property "Suit", its datatype is 'string', get or set this property(Suit)
+        public Face Face { get; set; }
+    }
+    public enum Suit
+    {
+        Clubs,
+        Diamonds,
+        Hearts,
+        Spades
+    }
+    public enum Face
+    {
+        Two,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Nine,
+        Ten,
+        Jack,
+        Queen,
+        King,
+        Ace
     }
 }
