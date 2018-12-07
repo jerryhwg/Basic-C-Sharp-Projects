@@ -66,6 +66,17 @@ namespace TwentyOne
                     }
                 }
             }
+            foreach (Player player in Players)
+            {
+                while (!player.Stay)
+                {
+                    Console.WriteLine("Your cards are: ");
+                    foreach (Card card in Player.Hand)
+                    {
+                        Console.Write("{0} ",)
+                    }
+                }
+            }
         }
         public override void ListPlayers() // override virtual method
         {
