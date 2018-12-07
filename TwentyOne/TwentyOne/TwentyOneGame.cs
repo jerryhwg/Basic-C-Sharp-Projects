@@ -21,6 +21,7 @@ namespace TwentyOne
             Dealer.Hand = new List<Card>(); // initialize Dealer's hand, empty ()
             Dealer.Stay = false;
             Dealer.Deck = new Deck(); // initialize Dealer's deck (start a new deck = refresh the deck for every single round)
+            Dealer.Deck.Shuffle(); // shuffle cards after instatiate
             Console.WriteLine("Place your bet!");
 
             foreach (Player player in Players)
@@ -63,6 +64,7 @@ namespace TwentyOne
                         {
                             Dealer.Balance += entry.Value;
                         }
+                        return;
                     }
                 }
             }
@@ -71,10 +73,95 @@ namespace TwentyOne
                 while (!player.Stay)
                 {
                     Console.WriteLine("Your cards are: ");
-                    foreach (Card card in Player.Hand)
+                    foreach (Card card in player.Hand)
                     {
-                        Console.Write("{0} ",)
+                        Console.Write("{0} ", card.ToString());
                     }
+                    Console.WriteLine("\n\nHit or stay?");
+                    string answer = Console.ReadLine().ToLower();
+                    if (answer == "stay") // stay = sit
+                    {
+                        player.Stay = true;
+                        break; // we break the loop and check the condition in while loop (outer loop)
+                    }
+                    else if (answer == "hit") // hit for another card from dealer
+                    {
+                        Dealer.Deal(player.Hand);
+                    }
+                    bool busted = TwentyOneRules.IsBusted(player.Hand); // also need to check if busted
+                    if (busted)
+                    {
+                        Dealer.Balance += Bets[player];
+                        Console.WriteLine("{0} Busted! You lose your bet of {1}. Your balance is now {2}.", player.Name, Bets[player], player.Balance);
+                        Console.WriteLine("Do you want to play again?");
+                        answer = Console.ReadLine().ToLower();
+                        if (answer == "yes" || answer == "yeah")
+                        {
+                            player.isActivelyPlaying = true; // remember game.Play() only runs when player.isActivelyPlaying = true (see Program.cs)
+                            return; 
+                        }
+                        else
+                        {
+                            player.isActivelyPlaying = false;
+                            return; // return just ends the void function -> back to game.Play() in Program.cs
+                        }
+                    }
+                }
+            }
+            Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand); // set the base by check if dealer is busted
+            Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand); // set the base if dealer stays or not before while loop
+            while (!Dealer.Stay && !Dealer.isBusted)
+            {
+                Console.WriteLine("Dealer is hitting...");
+                Dealer.Deal(Dealer.Hand);
+                Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand); // if this is true, while loop ends or
+                Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand); // if this is true, while loop ends
+            }
+            if (Dealer.Stay)
+            {
+                Console.WriteLine("Dealer is staying.");
+            }
+            if (Dealer.isBusted)
+            {
+                Console.WriteLine("Dealer Buested!");
+                foreach (KeyValuePair<Player, int> entry in Bets)
+                {
+                    Console.WriteLine("{0} won {1}!", entry.Key.Name, entry.Value); // Key = player, this player won this amount
+                    Players.Where(x => x.Name == entry.Key.Name).First().Balance += (entry.Value * 2); // Players is list, lambda expression, player earns
+                    Dealer.Balance -= entry.Value; // dealer loses
+                }
+                return;
+            }
+            foreach (Player player in Players)
+            {
+                bool? playerWon = TwentyOneRules.CompareHands(player.Hand, Dealer.Hand); // useful if more than 2 answers but when still wants to use boolean (true, false, null)
+                if (playerWon == null)
+                {
+                    Console.WriteLine("Push! No one wins."); // Tie
+                    player.Balance += Bets[player]; // give money (bet) back to player
+                    // Bets.Remove(player); // remove bets table / we actually don't need it because we reset the base everytime the game starts
+                }
+                else if (playerWon == true)
+                {
+                    Console.WriteLine("{0} won {1}!", player.Name, Bets[player]);
+                    player.Balance += (Bets[player] * 2); // player earns (bets * 2)
+                    Dealer.Balance -= Bets[player]; // dealer loses
+                }
+                else // dealer won
+                {
+                    Console.WriteLine("Dealer wins {0}!", Bets[player]);
+                    Dealer.Balance += Bets[player];
+                }
+                Console.WriteLine("Play again?");
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "yes" || answer == "yeah")
+                {
+                    player.isActivelyPlaying = true;
+
+                }
+                else
+                {
+                    player.isActivelyPlaying = false;
                 }
             }
         }

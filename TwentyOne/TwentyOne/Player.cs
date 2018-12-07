@@ -15,7 +15,8 @@ namespace TwentyOne
             Name = name; // receive name argument to initialize Name to assign it to the property 'Name' of Player class)
         }
 
-        public List<Card> Hand { get; set; } // property
+        private List<Card> _hand = new List<Card>();
+        public List<Card> Hand { get { return _hand; } set { _hand = value; } }// property
         public int Balance { get; set; }
         public string Name { get; set; }
         public bool isActivelyPlaying { get; set; }

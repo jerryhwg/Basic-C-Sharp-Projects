@@ -10,6 +10,11 @@ namespace TwentyOne
     {
         public Suit Suit { get; set; } // property "Suit", its datatype is 'string', get or set this property(Suit)
         public Face Face { get; set; } // 1st Face enum type, 2nd Face property
+
+        public override string ToString() // customize built-in ToString method with override
+        {
+            return string.Format("{0} of {1}", Face, Suit);
+        }
     }
     public enum Suit // enum for Suit, limited values (4)
     {
