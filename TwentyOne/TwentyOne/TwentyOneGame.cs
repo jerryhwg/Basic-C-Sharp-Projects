@@ -21,6 +21,51 @@ namespace TwentyOne
             Dealer.Hand = new List<Card>(); // initialize Dealer's hand, empty ()
             Dealer.Stay = false;
             Dealer.Deck = new Deck(); // initialize Dealer's deck (start a new deck = refresh the deck for every single round)
+            Console.WriteLine("Place your bet!");
+
+            foreach (Player player in Players)
+            {
+                int bet = Convert.ToInt32(Console.ReadLine()); // user enter his bet / bet method in Player.cs
+                bool succcessfullyBet = player.Bet(bet);
+                if (!succcessfullyBet) // = successfullyBet == false
+                {
+                    return;
+                }
+                Bets[player] = bet; // dictionary from "public Dictionary<Player, int> Bets { get; set; } in Game.cs"
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                Console.WriteLine("Dealing...");
+                foreach (Player player in Players)
+                {
+                    Console.Write("{0}: ", player.Name);
+                    Dealer.Deal(player.Hand); // give a card to a player
+                    if (i ==1)
+                    {
+                        bool blackJack = TwentyOneRules.CheckForBlackJack(player.Hand); // TwentyOneRules: class, CheckForBlackJack: method, player.Hand: argument
+                        if (blackJack)
+                        {
+                            Console.WriteLine("BlackJack! {0} wins {1}", player.Name, Bets[player]);
+                            player.Balance += Convert.ToInt32((Bets[player] * 1.5) + Bets[player]);
+                            return;
+                        }
+                    }
+                }
+                Console.WriteLine("Dealer: ");
+                Dealer.Deal(Dealer.Hand);
+                if (i == 1)
+                {
+                    bool blackJack = TwentyOneRules.CheckForBlackJack(Dealer.Hand);
+                    if (blackJack)
+                    {
+                        Console.WriteLine("Dealer has BlackJack! Everyone loses!");
+                        foreach (KeyValuePair<Player, int> entry in Bets)
+                        {
+                            Dealer.Balance += entry.Value;
+                        }
+                    }
+                }
+            }
         }
         public override void ListPlayers() // override virtual method
         {
