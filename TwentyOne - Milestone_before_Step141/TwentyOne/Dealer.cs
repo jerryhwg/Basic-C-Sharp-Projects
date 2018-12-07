@@ -12,7 +12,7 @@ namespace TwentyOne
         public Deck Deck { get; set; } // Dealer has Deck (so included as a property instead of inheritance that is for is relationship)
         public int Balance { get; set; }
 
-        public void Deal(List<Card> Hand) // method 'Deal'
+        public void Deal(List<Card> Hand)
         {
             Hand.Add(Deck.Cards.First()); // First: method to take the very first item in the list, then add it to the Hand (pass into Deal)
             Console.WriteLine(Deck.Cards.First().ToString() + "\n"); // Show which card

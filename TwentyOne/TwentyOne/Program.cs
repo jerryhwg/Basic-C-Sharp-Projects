@@ -10,52 +10,28 @@ namespace TwentyOne
     {
         static void Main(string[] args)
         {
-            //TwentyOneGame game = new TwentyOneGame(); // Instantiate the Class TwentyOneGame / game: instance (object)
-            //game.Players = new List<string>() { "Jesse", "Bill", "Joe" }; // game: instance(object), Players: property (inheritance from Game class) / Instatiate with some values
-            //game.ListPlayers(); // game: instance, ListPlayers: method (from Game class = super class)
-            //game.Play();
-            //Console.ReadLine();
-
-            //List<Game> games = new List<Game>();
-            //TwentyOneGame game = new TwentyOneGame(); // Polymorphism
-            //games.Add(game); // add games even though they are different data types
-
-            //TwentyOneGame game = new TwentyOneGame();
-            //game.Players = new List<string>() { "Jesse", "BIll", "Bob" };
-            //game.ListPlayers();
-            //Console.ReadLine();
-
-            //Game game = new TwentyOneGame(); // polymorphism
-            //game.Players = new List<Player>(); // instantiate first to add a player to Players list
-            //Player player = new Player(); // Player: datatype, object, class (instantiate)
-            //player.Name = "Jesse"; // instance
-            //game = game + player; // instance, 'game + player': a method, return to game
-            //game -= player; // short form of game = game + player
-
-            //Card card = new Card();
-            //card.Suit = Suit.Clubs;
-            
-            // Deck deck = new Deck(); // instantiate class Deck / Deck: datatype, object, class / deck: instance for 'Shuffle' method / inside of Deck, List<Card> see Deck.cs
-
-            // int count = deck.Cards.Count(x => x.Face == Face.Ace); //Lambda function
-            //int counter = 0;
-            //foreach (Card card in deck.Cards)
-            //{
-            //    if (card.Face == Face.Ace)
-            //    {
-            //        counter++;
-            //    }
-            //}
-            // Console.WriteLine(count);
-
-            //deck.Shuffle(3); // deck: instance, Shuffle: method, 3: argument / access Shuffle in Deck class (class method)
-
-            //foreach (Card card in deck.Cards) // Card: datatype / foreach runs against a list, card exists only in this loop / list of deck.Cards
-            //{
-            //    Console.WriteLine(card.Face + " of " + card.Suit); // card.Face & card.Suit from Deck.cs
-            //}
-            //Console.WriteLine(deck.Cards.Count);
-            Console.ReadLine();
+            Console.WriteLine("Welcome to the Grand Hotel and Casino. Let's start by telling me your name.");
+            string playerName = Console.ReadLine();
+            Console.WriteLine("And how much money did you bring today?");
+            int bank = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Hello, {0}. Would you like to join a game of 21 right now?", playerName); // string formatting
+            string answer = Console.ReadLine().ToLower();
+            if (answer == "yes" || answer == "yeah" || answer == "y")
+            {
+                Player player = new Player(playerName, bank); // instantiate == create a new 'player' (based on Player class) = initialize him (also have a player *constructor* in Player.cs - see mark #1)
+                // value (playerName) for name parameter for Name property, value (bank) for beginningBalance parameter for property Balance
+                Game game = new TwentyOneGame(); // also instantiate a game / polymorphism applies here to expose overloaded operator
+                game += player; // we're adding player to the game via overloaded operator + (combine two objects together by the Game class)
+                player.isActivelyPlaying = true; // isActivelyPlaying = a property of player / will be used for while loop (while player is actively playing)
+                while (player.isActivelyPlaying && player.Balance > 0)
+                {
+                    game.Play(); // play method in Game class
+                }
+                game -= player; // happens after while loop exit
+                Console.WriteLine("Thank you for playing!");
+            }
+            Console.WriteLine("Feel free to look around the casino. Bye for now"); // no if case
+            Console.Read(); // pause
         }
     }
 }

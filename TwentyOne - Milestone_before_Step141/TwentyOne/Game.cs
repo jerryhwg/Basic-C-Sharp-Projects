@@ -10,6 +10,7 @@ namespace TwentyOne
     {
         public List<Player> Players { get; set; } // property of Game (class, object, datatype)
         public string Name { get; set; }
+        public string Dealer { get; set; }
 
         public abstract void Play(); // abstract method - contains no implementation / abstract method only in abstract class / all derived (inheriting) class must implement this method
 
