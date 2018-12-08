@@ -8,17 +8,18 @@ namespace TwentyOne
 {
     public class Deck // Deck class is a receipe
     {
-        public Deck() // constructor first (same name as class) / Deck: method name 
+        public Deck() // Constructor first (same name as class) / Deck: method name / constructor = a special method of the same name class / it gets automatically invoked whenever an instance of the class is created / it also contains the collection of instructions
+        // constructor is used to assign initial values to the data members of the same class
         {
-            Cards = new List<Card>(); // instantiate a new list, this happens with 'Deck deck = new Deck();' to create a fully populate deck
+            Cards = new List<Card>(); // instantiate for a new list (object initializer), this happens with 'Deck deck = new Deck();' to create a fully populate deck
 
             for (int i = 0; i < 13; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
                     Card card = new Card(); // instantiate
-                    card.Face = (Face)i; // (Face): enum type after Card enum type Face declare
-                    card.Suit = (Suit)j;
+                    card.Face = (Face)i; // card.Face: Face = card property / (Face): enum type after Card enum type Face declare / choose iTh value from the Face(enum) list and assign it to the card's Face property
+                    card.Suit = (Suit)j; // explicit casting an int (underlying value of enum) into an enum
                     Cards.Add(card); // 52 cards for List<Card>
                 }
             }

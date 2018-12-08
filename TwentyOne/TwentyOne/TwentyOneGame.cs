@@ -8,12 +8,12 @@ namespace TwentyOne
 {
     public class TwentyOneGame: Game, IWalkAway // Game: base class inheritance example, IWalkAway: interface inheritance example
     {
-        public TwentyOneDealer Dealer { get; set; } // property 'TwentyOneDealer Dealer' specific to TwentyOneGame / Q: *TwentyOneDealer*
+        public TwentyOneDealer Dealer { get; set; } // property 'TwentyOneDealer Dealer' specific to TwentyOneGame / Q: *TwentyOneDealer* class or type ?
 
-        public override void Play() // method / an inheriting class must implement Game.play as Game.play (base) is defined in the *abstract* class 'Game' / to implement more customize, we add *override*
+        public override void Play() // method / an inheriting class must implement Game.play as Game.play (base) is defined in the *abstract* class 'Game' / to implement more customized method, so we add *override*
         {
-            Dealer = new TwentyOneDealer(); // start for this method code / instantiate a new dealer for TwentyOne game
-            foreach (Player player in Players) // Players is a property of Game class, Player: object type, player: instance (object)
+            Dealer = new TwentyOneDealer(); // start for this method code / instantiate a new dealer for TwentyOne game specific (we made TwentyOneDealer class for Dealer class, however we didn't for Player class - instructor's choice)
+            foreach (Player player in Players) // run thru all players / Players is a property of Game class, Player: object type, player: instance (object)
             {
                 player.Hand = new List<Card>(); // ensure Hand is empty () / instantiate
                 player.Stay = false;
@@ -21,34 +21,34 @@ namespace TwentyOne
             Dealer.Hand = new List<Card>(); // initialize Dealer's hand, empty ()
             Dealer.Stay = false;
             Dealer.Deck = new Deck(); // initialize Dealer's deck (start a new deck = refresh the deck for every single round)
-            Dealer.Deck.Shuffle(); // shuffle cards after instatiate
+            Dealer.Deck.Shuffle(); // shuffle cards after all those initialized
             Console.WriteLine("Place your bet!");
 
-            foreach (Player player in Players)
+            foreach (Player player in Players) // loop thru each player to place a bet
             {
                 int bet = Convert.ToInt32(Console.ReadLine()); // user enter his bet / bet method in Player.cs
-                bool succcessfullyBet = player.Bet(bet);
-                if (!succcessfullyBet) // = successfullyBet == false
+                bool succcessfullyBet = player.Bet(bet); // true or false return from Player.Bet method with integer bet (for 'int amount' parameter)
+                if (!succcessfullyBet) // = (successfullyBet == false)
                 {
-                    return;
+                    return; // we don't return anything (for it's void method) but we end this method
                 }
-                Bets[player] = bet; // dictionary from "public Dictionary<Player, int> Bets { get; set; } in Game.cs"
+                Bets[player] = bet; // for Dealer to effectively track player:bet use 'dictionary' method from "public Dictionary<Player, int> Bets { get; set; } in Game.cs" / put it in Game class because it can be common to any game
             }
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++) // deal card twice for each player
             {
                 Console.WriteLine("Dealing...");
-                foreach (Player player in Players)
+                foreach (Player player in Players) // foreach loop useful for list
                 {
-                    Console.Write("{0}: ", player.Name);
-                    Dealer.Deal(player.Hand); // give a card to a player
-                    if (i ==1)
+                    Console.Write("{0}: ", player.Name); // player: instance, Name: property
+                    Dealer.Deal(player.Hand); // give two cards to a player (player.Hand) / Dealer: class, Deal: method, player.Hand: argument (so check player.Hand if blackjack or not)
+                    if (i ==1) // need to check if blackjack once the second card is given
                     {
                         bool blackJack = TwentyOneRules.CheckForBlackJack(player.Hand); // TwentyOneRules: class, CheckForBlackJack: method, player.Hand: argument
                         if (blackJack)
                         {
                             Console.WriteLine("BlackJack! {0} wins {1}", player.Name, Bets[player]);
-                            player.Balance += Convert.ToInt32((Bets[player] * 1.5) + Bets[player]);
-                            return;
+                            player.Balance += Convert.ToInt32((Bets[player] * 1.5) + Bets[player]); // player earns
+                            return; // end this method
                         }
                     }
                 }
@@ -57,10 +57,10 @@ namespace TwentyOne
                 if (i == 1)
                 {
                     bool blackJack = TwentyOneRules.CheckForBlackJack(Dealer.Hand);
-                    if (blackJack)
+                    if (blackJack) // dealer can also have blackjack
                     {
                         Console.WriteLine("Dealer has BlackJack! Everyone loses!");
-                        foreach (KeyValuePair<Player, int> entry in Bets)
+                        foreach (KeyValuePair<Player, int> entry in Bets) // KeyValuePair: dictionary remember all its key:pair value
                         {
                             Dealer.Balance += entry.Value;
                         }
@@ -157,7 +157,6 @@ namespace TwentyOne
                 if (answer == "yes" || answer == "yeah")
                 {
                     player.isActivelyPlaying = true;
-
                 }
                 else
                 {

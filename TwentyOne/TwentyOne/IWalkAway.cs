@@ -8,6 +8,6 @@ namespace TwentyOne
 {
     interface IWalkAway // interface is always public so no need to add 'public'
     {
-        void WalkAway(Player player); // return of void (no return value is needed)
+        void WalkAway(Player player); // void (no return value is needed)
     }
 }

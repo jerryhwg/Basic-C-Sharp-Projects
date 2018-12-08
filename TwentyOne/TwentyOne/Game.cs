@@ -13,7 +13,7 @@ namespace TwentyOne
 
         public List<Player> Players { get { return _players; } set { _players = value; } } // property of Game (class, object, datatype) / per private, player is always empty value unless it's set with a value
         public string Name { get; set; }
-        public Dictionary<Player, int> Bets { get { return _bets; } set { _bets = value; } } // property 'Bets' and its datatype is Dictionary to represent who has how much amount of bet
+        public Dictionary<Player, int> Bets { get { return _bets; } set { _bets = value; } } // property 'Bets' and its datatype is Dictionary to represent who has how much amount of bet / TwentyOne Game will automaticailly inherit
 
         public abstract void Play(); // abstract method - contains no implementation / abstract method only in abstract class / all derived (inheriting) class must implement this method
 
