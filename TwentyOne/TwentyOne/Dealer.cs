@@ -20,6 +20,7 @@ namespace TwentyOne
             Console.WriteLine(card); // Show which card
             using (StreamWriter file = new StreamWriter(@"C:\Users\jerry\Logs\log.txt", true)) // true = append (if you put mouse over 'StreamWriter', you will see 'bool append' in the place
             {
+                file.WriteLine(DateTime.Now);
                 file.WriteLine(card); // once hits this statement, the above streamwriter is flushed from memory
             }
             Deck.Cards.RemoveAt(0); // 0 index = first Card from Deck.Cards list
