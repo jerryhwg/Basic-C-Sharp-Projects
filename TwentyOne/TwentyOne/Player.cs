@@ -16,8 +16,8 @@ namespace TwentyOne
         }
 
         private List<Card> _hand = new List<Card>();
-        public List<Card> Hand { get { return _hand; } set { _hand = value; } }// property
-        public int Balance { get; set; }
+        public List<Card> Hand { get { return _hand; } set { _hand = value; } }// property // non-auto-implemented property is needed for list, dictionary type
+        public int Balance { get; set; } // auto-implemented property
         public string Name { get; set; }
         public bool isActivelyPlaying { get; set; }
         public bool Stay { get; set; }
