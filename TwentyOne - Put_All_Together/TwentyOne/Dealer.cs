@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace TwentyOne
 {
@@ -16,12 +15,7 @@ namespace TwentyOne
         public void Deal(List<Card> Hand) // method 'Deal'
         {
             Hand.Add(Deck.Cards.First()); // First: method to take the very first item in the list, then add it to the Hand (pass into Deal)
-            string card = string.Format(Deck.Cards.First().ToString() + "\n");
-            Console.WriteLine(card); // Show which card
-            using (StreamWriter file = new StreamWriter(@"C:\Users\jerry\Logs\log.txt", true)) // true = append (if you put mouse over 'StreamWriter', you will see 'bool append' in the place
-            {
-                file.WriteLine(card); // once hits this statement, the above streamwriter is flushed from memory
-            }
+            Console.WriteLine(Deck.Cards.First().ToString() + "\n"); // Show which card
             Deck.Cards.RemoveAt(0); // 0 index = first Card from Deck.Cards list
         }
     }
