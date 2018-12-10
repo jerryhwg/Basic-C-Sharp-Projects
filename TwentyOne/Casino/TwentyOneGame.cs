@@ -23,11 +23,23 @@ namespace Casino.TwentyOne
             Dealer.Stay = false;
             Dealer.Deck = new Deck(); // initialize Dealer's deck (start a new deck = refresh the deck for every single round)
             Dealer.Deck.Shuffle(); // shuffle cards after all those initialized
-            Console.WriteLine("Place your bet!");
+            //Console.WriteLine("Place your bet!"); - this original is replaced by the advanced exception handling below
 
             foreach (Player player in Players) // loop thru each player to place a bet
             {
-                int bet = Convert.ToInt32(Console.ReadLine()); // user enter his bet / bet method in Player.cs
+                bool validAnswer = false;
+                int bet = 0;
+                while (!validAnswer)
+                {
+                    Console.WriteLine("Place your bet!");
+                    validAnswer = int.TryParse(Console.ReadLine(), out bet);
+                    if (!validAnswer) Console.WriteLine("Please enter digits only, no decimal");
+                }
+                //int bet = Convert.ToInt32(Console.ReadLine()); // user enter his bet / bet method in Player.cs - this original is replaced by the advanced exception handling above
+                if (bet < 0) // without this exception handling, when bet is -100 for example, when the player loses, his return is 200 unexpectedly
+                {
+                    throw new FraudException(); // related to try & catch exception handling in Program.cs
+                }
                 bool succcessfullyBet = player.Bet(bet); // true or false return from Player.Bet method with integer bet (for 'int amount' parameter)
                 if (!succcessfullyBet) // = (successfullyBet == false)
                 {

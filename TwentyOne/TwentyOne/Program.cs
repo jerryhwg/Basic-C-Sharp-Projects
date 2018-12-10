@@ -25,11 +25,20 @@ namespace TwentyOne
             //Player newPlayer = new Player("Jesse"); // utilize the contructor call chain (in Player.cs)
 
             const string casinoName = "Grand Hotel and Casino"; // constant is useful if you don't want to worry if the name is gonna change later
-
             Console.WriteLine("Welcome to {0}. Let's start by telling me your name.", casinoName); // casinoName is const
             string playerName = Console.ReadLine();
-            Console.WriteLine("And how much money did you bring today?");
-            int bank = Convert.ToInt32(Console.ReadLine());
+
+            bool validAnswer = false; // advanced exception handling code segment
+            int bank = 0;
+            while (!validAnswer) // continue to loop as long as invalid answer
+            {
+                Console.WriteLine("And how much money did you bring today?");
+                validAnswer = int.TryParse(Console.ReadLine(), out bank); // Console.ReadLine(): in, bank: out -> assign back to a bank value right before while (!validAnswer) loop, if not valid, then bank = 0 / more versatile than Convert.ToInt32 because it allows you to know if the conversion succeeds or not / int = Int32
+                if (!validAnswer) Console.WriteLine("Please enter digits only, no decimal.");
+            }
+
+            //Console.WriteLine("And how much money did you bring today?");
+            //int bank = Convert.ToInt32(Console.ReadLine()); - original before adopting TryParse in above
             Console.WriteLine("Hello, {0}. Would you like to join a game of 21 right now?", playerName); // string formatting
             string answer = Console.ReadLine().ToLower();
 
@@ -47,7 +56,23 @@ namespace TwentyOne
 
                 while (player.isActivelyPlaying && player.Balance > 0) // *** (while true =) as long as the player's isActivelyPlaying value is true (answer 'yes' for play? question) AND player's balance is not empty amount, game on (run 'play' method in Game class)! 
                 {
-                    game.Play(); // play method in Game class / game = new game (instance)
+                    try
+                    {
+                        game.Play(); // play method in Game class / game = new game (instance)
+                    }
+                    catch (FraudException) // if it's an argument exception, this happens
+                    {
+                        Console.WriteLine("Security! Kick this person out"); // if bet is -100 for example
+                        Console.ReadLine();
+                        return;
+
+                    }
+                    catch (Exception) // Exception for other generic (all) exceptions
+                    {
+                        Console.WriteLine("An error occurred. Please contact your System Administrator.");
+                        Console.ReadLine();
+                        return; // also end the game, return ends the method (game.Play()) in the void method (static void Main(string[] args)) return nothing, it ends the method right here
+                    }
                 }
 
                 game -= player; // happens after while loop exit
