@@ -19,6 +19,9 @@ namespace ExceptionHandlingMoreBasic1
                     throw new ArgumentException(); // catch 'ArgumentException'
                 }
                 Console.WriteLine("You were born in {0}", birthYear); // display the birthyear if no exception
+                var today = DateTime.Today;
+                var age = today.Year - birthYear;
+                Console.WriteLine("Your age is {0}", age);
                 Console.ReadLine();
             }
             catch (ArgumentException) // display appropriate error messages if user enters 0 or negative numbers
