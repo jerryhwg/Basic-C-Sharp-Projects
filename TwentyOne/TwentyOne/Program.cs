@@ -22,7 +22,11 @@ namespace TwentyOne
 
             //TimeSpan ageAtGraduation = yearOfGraduation - yearOfBirth;
 
-            Console.WriteLine("Welcome to the Grand Hotel and Casino. Let's start by telling me your name.");
+            //Player newPlayer = new Player("Jesse"); // utilize the contructor call chain (in Player.cs)
+
+            const string casinoName = "Grand Hotel and Casino"; // constant is useful if you don't want to worry if the name is gonna change later
+
+            Console.WriteLine("Welcome to {0}. Let's start by telling me your name.", casinoName); // casinoName is const
             string playerName = Console.ReadLine();
             Console.WriteLine("And how much money did you bring today?");
             int bank = Convert.ToInt32(Console.ReadLine());
@@ -32,6 +36,11 @@ namespace TwentyOne
             if (answer == "yes" || answer == "yeah" || answer == "y")
             {
                 Player player = new Player(playerName, bank); // instantiate with two arguments as defined in constructor in Player class ==> create a new 'player' (mark #1) / value (playerName) for name parameter for Name property, value (bank) for beginningBalance parameter for property Balance
+                player.Id = Guid.NewGuid(); // properly track the player with the global unique identifier
+                using (StreamWriter file = new StreamWriter(@"C:\Users\jerry\Logs\log.txt", true)) // true = append (if you put mouse over 'StreamWriter', you will see 'bool append' in the place
+                {
+                    file.WriteLine(player.Id);
+                }
                 Game game = new TwentyOneGame(); // instantiate a game / polymorphism applies here / Game = base, detailed implementation uses TwentyOneGame as this game is TwentyOneGame
                 game += player; // (game = game + player) we're adding player to the game via overloaded operator + (combine two objects together with operator overload) as defined in Player class
                 player.isActivelyPlaying = true; // isActivelyPlaying = a property of player / will be used for while loop (while player is actively playing)

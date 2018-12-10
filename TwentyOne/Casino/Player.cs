@@ -8,6 +8,9 @@ namespace Casino
 {
     public class Player
     {
+        public Player(string name) : this(name, 100) // Constructor call chain example / this constructor reuses the original constructor which calls for two parameters
+        {
+        }
         public Player(string name, int beginningBalance) // Constructor (constructor name must be same as its class name), two parameters (mark #1 for main program Player init) / { } = a collection of instructions
         {
             Hand = new List<Card>(); // initialize and assign List<Card> to Hand
@@ -21,7 +24,7 @@ namespace Casino
         public string Name { get; set; }
         public bool isActivelyPlaying { get; set; }
         public bool Stay { get; set; }
-
+        public Guid Id { get; set; }
         public bool Bet(int amount) // Bet method / keep the Bet logic contained in the Player class because only player bets
         {
             if (Balance - amount < 0)
