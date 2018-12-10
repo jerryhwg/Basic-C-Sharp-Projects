@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Casino.Interfaces;
 
-namespace TwentyOne
+namespace Casino.TwentyOne
 {
-    public class TwentyOneGame: Game, IWalkAway // Game: base class inheritance example, IWalkAway: interface inheritance example
+    public class TwentyOneGame : Game, IWalkAway // Game: base class inheritance example, IWalkAway: interface inheritance example
     {
         public TwentyOneDealer Dealer { get; set; } // property 'TwentyOneDealer Dealer' specific to TwentyOneGame / Q: *TwentyOneDealer* class or type ?
 

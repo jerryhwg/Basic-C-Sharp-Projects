@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace Casino.TwentyOne // Anything to deal with the TWentyOne, put it in TwentyOne subsection of Casiono
 {
     public class TwentyOneDealer : Dealer // this dealer is specific to TwentyOne Game and it inherit from 'Dealer' class
     {
