@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Casino;
 using Casino.TwentyOne;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace TwentyOne
 {
@@ -27,6 +29,21 @@ namespace TwentyOne
             const string casinoName = "Grand Hotel and Casino"; // constant is useful if you don't want to worry if the name is gonna change later
             Console.WriteLine("Welcome to {0}. Let's start by telling me your name.", casinoName); // casinoName is const
             string playerName = Console.ReadLine();
+
+            if (playerName.ToLower() == "admin")
+            {
+                List<ExceptionEntity> Exceptions = ReadExceptions(); // ReadException method below
+                foreach (var exception in Exceptions)
+                {
+                    Console.Write(exception.Id + " | ");
+                    Console.Write(exception.ExceptionType + " | ");
+                    Console.Write(exception.ExceptionMessage + " | ");
+                    Console.Write(exception.TimeStamp + " | ");
+                    Console.WriteLine();
+                }
+                Console.Read();
+                return; // if the user admin, not gonna play TwentyOneGame, so return ends it
+            }
 
             bool validAnswer = false; // advanced exception handling code segment
             int bank = 0;
@@ -60,16 +77,18 @@ namespace TwentyOne
                     {
                         game.Play(); // play method in Game class / game = new game (instance)
                     }
-                    catch (FraudException) // if it's an argument exception, this happens
+                    catch (FraudException ex) // if it's an argument exception, this happens
                     {
-                        Console.WriteLine("Security! Kick this person out"); // if bet is -100 for example
+                        Console.WriteLine(ex.Message); // if bet is -100 for example
+                        UpdateDbWithException(ex); // use this private method 'private static void UpdateDbWithException(Exception ex)'
                         Console.ReadLine();
                         return;
 
                     }
-                    catch (Exception) // Exception for other generic (all) exceptions
+                    catch (Exception ex) // Exception for other generic (all) exceptions
                     {
                         Console.WriteLine("An error occurred. Please contact your System Administrator.");
+                        UpdateDbWithException(ex);
                         Console.ReadLine();
                         return; // also end the game, return ends the method (game.Play()) in the void method (static void Main(string[] args)) return nothing, it ends the method right here
                     }
@@ -81,6 +100,60 @@ namespace TwentyOne
 
             Console.WriteLine("Feel free to look around the casino. Bye for now"); // case if NO answered
             Console.Read(); // pause
+        }
+
+        private static void UpdateDbWithException(Exception ex) // take an argument (type: Exception, call it ex : standard) / Exception here covers all exceptions including FraudException (polymorphism) / void: no return needed, just updating db is enough
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TwentyOneGame;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string queryString = @"INSERT INTO Exceptions (ExceptionType, ExceptionMessage, TimeStamp) VALUES (@ExceptionType, @ExceptionMessage, @TimeStamp)"; // parameterized query
+            using (SqlConnection connection = new SqlConnection(connectionString)) // create a new sql connection instance with connection string / using here is for managing, controlling memory resource when you deal with external resources
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+
+                // Datatype first
+                command.Parameters.Add("@ExceptionType", SqlDbType.VarChar); // - this maps to @ExceptionType in VALUES / protect from SQL injection
+                command.Parameters.Add("@ExceptionMessage", SqlDbType.VarChar); // we add these parameters at least in terms of data type
+                command.Parameters.Add("@TimeStamp", SqlDbType.DateTime);
+
+                //Data value
+                command.Parameters["@ExceptionType"].Value = ex.GetType().ToString();
+                command.Parameters["@ExceptionMessage"].Value = ex.Message;
+                command.Parameters["@TimeStamp"].Value = DateTime.Now;
+
+                connection.Open();
+                command.ExecuteNonQuery(); // insert statement so non query
+                connection.Close();
+            }
+        }
+        private static List<ExceptionEntity> ReadExceptions()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TwentyOneGame;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            // it's common to put this connection string in App.config
+            string queryString = @"Select Id, ExceptionType, ExceptionMessage, TimeStamp From Exceptions";
+
+            List<ExceptionEntity> Exceptions = new List<ExceptionEntity>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection); // this is parameterized query
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ExceptionEntity exception = new ExceptionEntity();
+                    exception.Id = Convert.ToInt32(reader["Id"]);
+                    exception.ExceptionType = reader["ExceptionType"].ToString();
+                    exception.ExceptionMessage = reader["ExceptionMessage"].ToString();
+                    exception.TimeStamp = Convert.ToDateTime(reader["TimeStamp"]);
+                    Exceptions.Add(exception); // add to the list
+                }
+                connection.Close();
+            }
+
+            return Exceptions;
         }
     }
 }

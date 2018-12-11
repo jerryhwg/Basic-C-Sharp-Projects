@@ -38,7 +38,7 @@ namespace Casino.TwentyOne
                 //int bet = Convert.ToInt32(Console.ReadLine()); // user enter his bet / bet method in Player.cs - this original is replaced by the advanced exception handling above
                 if (bet < 0) // without this exception handling, when bet is -100 for example, when the player loses, his return is 200 unexpectedly
                 {
-                    throw new FraudException(); // related to try & catch exception handling in Program.cs
+                    throw new FraudException("Security! Kick this person out."); // related to try & catch exception handling in Program.cs
                 }
                 bool succcessfullyBet = player.Bet(bet); // true or false return from Player.Bet method with integer bet (for 'int amount' parameter)
                 if (!succcessfullyBet) // = (successfullyBet == false)
