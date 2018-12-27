@@ -18,6 +18,14 @@
 
 * Basic C# console program example
 
+#### listBasic1
+
+* List  
+    ```C#
+    List<int> intList1 = new List<int>();
+    List<string> intList2 = new List<string>();
+    ```
+
 #### loopBasic1
 
 * do while loop
@@ -55,3 +63,9 @@
 
 * Basic C# console program example
 * Write, read, data type conversion (casting), string + variable
+
+#### stringBasic
+
+* string
+* ToUpper
+* StringBuilder
