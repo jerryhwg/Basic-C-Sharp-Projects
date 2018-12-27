@@ -7,11 +7,20 @@
 
 #### arrayBasic1
 
-* Array
+* array
     ```C#
     int[] numArray1 = new int[] { 5, 2, 10, 200, 500 };
     int[] numArray2 = { 5, 2, 10, 200, 5000 };
     ```
+
+#### assignmentBasic1
+
+* multiple scenarios
+* for loop for array
+* do while loop with switch
+* for loop with if
+* while loop
+* foreach with if
 
 #### booleanBasic
 
@@ -29,26 +38,40 @@
 #### iterationBasic1
 
 * foreach
+    ```C#
+    foreach (int score in testScores)
+    ```
+* passingScores.Count
+
+#### iterationBasic2
+
+* for loop
+    ```C#
+    for (int i = 0; i < names.Length; i++)
+    ```
+* for loop / if / do while switch
+* array
+* \ for "
 
 #### listBasic1
 
 * List  
     ```C#
     List<int> intList1 = new List<int>();
-    List<int> intList2 = new List<int>() {1, 2, 3, 4, 5};
+    List<int> intList2 = new List<int>() { 1, 2, 3, 4, 5 };
     List<string> intList2 = new List<string>();
     ```
 
 #### listsAndArraysBasic
 
-* List
-* Array
+* list
+* array
 
 #### listsAndArraysBasic2
 
-* List
-* Array
-* Another version of listsAndArraysBasic
+* list
+* array
+* another version of listsAndArraysBasic
 
 #### loopBasic1
 
@@ -85,8 +108,8 @@
   
 #### MyApp2  
 
-* Basic C# console program example
-* Write, read, data type conversion (casting), string + variable
+* basic C# console program example
+* write, read, data type conversion (casting), string + variable
 
 #### stringBasic
 
