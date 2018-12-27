@@ -5,6 +5,14 @@
 * data type: string, integer
 * boolean logic
 
+#### arrayBasic1
+
+* Array
+    ```C#
+    int[] numArray1 = new int[] { 5, 2, 10, 200, 500 };
+    int[] numArray2 = { 5, 2, 10, 200, 5000 };
+    ```
+
 #### booleanBasic
 
 * boolean logic (==, !=, >=, <=, &&, ||)
@@ -18,13 +26,29 @@
 
 * Basic C# console program example
 
+#### iterationBasic1
+
+* foreach
+
 #### listBasic1
 
 * List  
     ```C#
     List<int> intList1 = new List<int>();
+    List<int> intList2 = new List<int>() {1, 2, 3, 4, 5};
     List<string> intList2 = new List<string>();
     ```
+
+#### listsAndArraysBasic
+
+* List
+* Array
+
+#### listsAndArraysBasic2
+
+* List
+* Array
+* Another version of listsAndArraysBasic
 
 #### loopBasic1
 
