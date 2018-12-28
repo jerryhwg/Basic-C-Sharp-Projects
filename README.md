@@ -81,13 +81,17 @@
 * constructor call chain
     ```C#
     public Racer(string name) : this (name, 100)
+    public Racer(string name, int racerLevel)
     ```
+* property type
 * var
 * const
 
 #### DateTimeBasic1
 
 * DateTime
+* DateTime.Now
+* dt.AddHours(+t)
 
 #### enumBasic1
 
@@ -122,6 +126,7 @@
     File.WriteAllText(@"C:\Users\jerry\Logs\number.txt", number);
     File.ReadAllText(@"C:\Users\jerry\Logs\number.txt");
     ```
+* @ " "
 
 #### GenericBasic1
 
@@ -166,13 +171,23 @@
 
 #### LambdaBasic1
 
+* list with multi members & properties
+* foreach and show a matching
+* property type
+
 #### LambdaBasic2
 
 * lambda expression
+    ```C#
+    List<Employee> empListJoe = empList.Where(x => x.FName == "Joe").ToList();
+    ```
 
 #### LambdaBasic3
 
 * lambda expression
+    ```C#
+    List<Employee> empListJoe = empList.Where(x => x.Id > 5).ToList();
+    ```
 
 #### listBasic1
 

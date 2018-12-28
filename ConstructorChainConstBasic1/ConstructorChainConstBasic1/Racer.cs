@@ -16,7 +16,7 @@ namespace ConstructorChainConstBasic1
             Name = name; // instructions defined in constructor
             Level = racerLevel;
         }
-        public int Level { get; set; } // property type of Racer class(object)
+        public int Level { get; set; } // property type of Racer class(object) / auto-implemented property
         public string Name { get; set; }
     }
 }
