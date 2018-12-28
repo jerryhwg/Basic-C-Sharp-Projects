@@ -15,9 +15,9 @@ namespace StructBasic1
             Console.WriteLine(data.Amount); // print the amount to the console
             Console.ReadLine();
         }
-    public struct Number // create a struct called Number
+    public struct Number // create a new struct called Number (value type)
     {
-        public decimal Amount { get; set; } // propery 'Amount' with decimal datatype
+        public decimal Amount { get; set; } // property 'Amount' with decimal datatype
     }
         
     }
