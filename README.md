@@ -112,7 +112,8 @@
 
 #### ExceptionHandlingMoreBasic1
 
-* try catch
+* try catch (ArgumentException)
+* age (DateTime)
 
 ### FileIOBasic1
 
@@ -255,10 +256,17 @@
 
 #### TwentyOne - Put_All_Together
 
-#### TwentyOne
-
-#### TwentyOne - Library
-
 #### TwentyOne - ADO
 
 * ADO.NET
+    ```C#
+    private static void UpdateDbWithException()
+    
+    string connectionString
+    using (SqlConnection connection = new SqlConnection(connectionString))
+    string queryString
+    
+    SqlCommand command = new SqlCommand(queryString, connection);
+    command.Parameters.Add("@TimeStamp", SqlDbType.DateTime);
+    command.Parameters["@TimeStamp"].Value = DateTime.Now;
+    ```
