@@ -6,6 +6,10 @@
     ```C#
     public abstract class Person
     ```
+* inheritance
+    ```C#
+    public class Employee : Person
+    ```
 
 #### anonyIncomeComp
 
@@ -58,19 +62,33 @@
 
 #### classObjectMethodBasic3
 
-* method and datatype
+* method overload (math)
+* datatype (int, decimal, string)
 * instantiate
+    ```C#
+    int result1 = new int();
+    ```
 
 #### classObjectMethodBasic4
 
 * method
 * instantiate / initialize / assignment
 * output parameter
+    ```C#
+    public static int math(int number1, int number2 = 3)
+    if (!Int32.TryParse(input2, out number2))
+    ```
 
 #### classObjectMethodBasic5
 
 * method overload
 * output parameter
+    ```C#
+    public static void Div(int number)
+    public static void Div(int number, out int output)
+
+    Math.Div(number, out output);
+    ```
 
 #### ConsoleApp1
 
@@ -98,6 +116,7 @@
 * enums
     ```C#
     public enum DaysOfWeek
+    DaysOfWeek day = DaysOfWeek.Monday;
     ```
 * try catch
 
@@ -133,6 +152,9 @@
 * generics
     ```C#
     public class Employee<T>
+
+    Employee<string> employee = new Employee<string>();
+    Employee<int> employeeID = new Employee<int>();
     ```
 
 #### InheritanceBasic1
@@ -140,6 +162,10 @@
 * inheritance
     ```C#
     class Employee : Person
+    ```
+* call super class method (Person)
+    ```C#
+    employee.SayName();
     ```
 
 #### InterfaceBasic1
@@ -149,6 +175,7 @@
     interface IQuittable
     public class YQuit : IQuittable
     ```
+* inheritance
 * polymorphism
 
 #### iterationBasic1
@@ -249,9 +276,12 @@
 
 #### OperatorOverload
 
-* operator overload
+* operator overloading
     ```C#
     public static bool operator ==(Employee x, Employee y)
+
+    public static Game operator+ (Game game, Player player)
+    game = game + player;
     ```
 
 #### stringBasic
@@ -266,6 +296,8 @@
     ```C#
     public struct Number
     ```
+* value type (struct)
+* reference type (class)
 
 #### TwentyOne - Before_Put_All_Together
 
