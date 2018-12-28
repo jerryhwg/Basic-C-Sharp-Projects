@@ -35,6 +35,19 @@
 
 * Basic C# console program example
 
+#### exceptionHandlingBasic1
+
+* try
+* catch (FormatException msg)
+* catch (DivideByZeroException msg)
+* catch (Exception msg)
+* finally
+
+#### exceptionHandlingBasic2
+
+* try
+* catch
+
 #### iterationBasic1
 
 * foreach
