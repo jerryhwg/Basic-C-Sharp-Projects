@@ -33,6 +33,7 @@
 * while loop
 * foreach with if
 * fruits.Contains(choice)
+* multiple matching & indexes
 
 #### booleanBasic
 
