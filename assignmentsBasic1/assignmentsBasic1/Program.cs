@@ -166,7 +166,7 @@ class Program
         }
         else
         {
-            Console.WriteLine("The name is listed duplicate in the list");
+            Console.WriteLine("The name is not listed duplicate in the list");
         }
 
         Console.ReadLine();

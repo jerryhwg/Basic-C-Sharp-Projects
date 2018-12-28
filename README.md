@@ -21,6 +21,7 @@
 * for loop with if
 * while loop
 * foreach with if
+* fruits.Contains(choice)
 
 #### booleanBasic
 
@@ -30,6 +31,39 @@
 
 * if, else if, else, nested if/else
 * double (data type)
+
+#### classObjectMethodBasic1
+
+* class
+* method
+    ```C#
+    Math.Addition(number)
+    public static double Addition(double number)
+    ```
+
+#### classObjectMethodBasic2
+
+* method
+    ```C#
+    Math.math(firstNumber: 3, secondNumber: 5);
+    public static void math(int firstNumber, int secondNumber)
+    ```
+
+#### classObjectMethodBasic3
+
+* method and datatype
+* instantiate
+
+#### classObjectMethodBasic4
+
+* method
+* instantiate / initialize / assignment
+* output parameter
+
+#### classObjectMethodBasic5
+
+* method overload
+* output parameter
 
 #### ConsoleApp1
 
