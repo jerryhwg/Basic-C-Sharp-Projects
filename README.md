@@ -1,5 +1,12 @@
 # Basic-C-Sharp-Projects
 
+#### AbstractClassBasic1
+
+* abstract class
+    ```C#
+    public abstract class Person
+    ```
+
 #### anonyIncomeComp
 
 * data type: string, integer
@@ -69,6 +76,25 @@
 
 * Basic C# console program example
 
+#### ConstructionChainConstBasic1
+
+* constructor call chain
+    ```C#
+    public Racer(string name) : this (name, 100)
+    ```
+
+#### DateTimeBasic1
+
+* DateTime
+
+#### enumBasic1
+
+* enums
+    ```C#
+    public enum DaysOfWeek
+    ```
+* try catch
+
 #### exceptionHandlingBasic1
 
 * try
@@ -81,6 +107,41 @@
 
 * try
 * catch
+
+#### ExceptionHandlingMoreBasic1
+
+* try catch
+
+### FileIOBasic1
+
+* File I/O
+    ```C#
+    File.WriteAllText(@"C:\Users\jerry\Logs\number.txt", number);
+    File.ReadAllText(@"C:\Users\jerry\Logs\number.txt");
+    ```
+
+#### GenericBasic1
+
+* generics
+    ```C#
+    public class Employee<T>
+    ```
+
+#### InheritanceBasic1
+
+* inheritance
+    ```C#
+    class Employee : Person
+    ```
+
+#### InterfaceBasic1
+
+* interface
+    ```C#
+    interface IQuittable
+    public class YQuit : IQuittable
+    ```
+* polymorphism
 
 #### iterationBasic1
 
@@ -99,6 +160,16 @@
 * for loop / if / do while switch
 * array
 * \ for "
+
+#### LambdaBasic1
+
+#### LambdaBasic2
+
+* lambda expression
+
+#### LambdaBasic3
+
+* lambda expression
 
 #### listBasic1
 
@@ -158,8 +229,34 @@
 * basic C# console program example
 * write, read, data type conversion (casting), string + variable
 
+#### OperatorOverload
+
+* operator overload
+    ```C#
+    public static bool operator ==(Employee x, Employee y)
+    ```
+
 #### stringBasic
 
 * string
 * ToUpper
 * StringBuilder
+
+#### StructBasic1
+
+* structs
+    ```C#
+    public struct Number
+    ```
+
+#### TwentyOne - Before_Put_All_Together
+
+#### TwentyOne - Put_All_Together
+
+#### TwentyOne
+
+#### TwentyOne - Library
+
+#### TwentyOne - ADO
+
+* ADO.NET
