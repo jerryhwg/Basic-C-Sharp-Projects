@@ -82,6 +82,8 @@
     ```C#
     public Racer(string name) : this (name, 100)
     ```
+* var
+* const
 
 #### DateTimeBasic1
 
